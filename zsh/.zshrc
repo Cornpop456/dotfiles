@@ -112,7 +112,7 @@ prompt_end() {
   else
     echo -n "%{%k%}"
   fi
-  echo -n "\n%(?:%{$fg_bold[green]%}%1{➜%}:%{$fg_bold[red]%}%1{➜%})%{$reset_color%}"
+  echo -n "\n%(?:%{$fg_bold[green]%}%1{➜%}:%{$fg_bold[red]%}%1{➜%})%{$reset_color%}%{%f%}"
   CURRENT_BG=''
 }
 
