@@ -32,6 +32,8 @@
 ### Segment drawing
 # A few utility functions to make it easy and re-usable to draw segmented prompts
 
+MINT_COLOR=#3EB489
+
 CURRENT_BG='NONE'
 
 case ${SOLARIZED_THEME:-dark} in
@@ -72,6 +74,11 @@ prompt_segment() {
   [[ -n $3 ]] && echo -n $3
 }
 
+# mint logo
+prompt_mint_logo() {
+  prompt_segment black $MINT_COLOR "󰣭 "
+}
+
 # End the prompt, closing any open segments
 prompt_end() {
   if [[ -n $CURRENT_BG ]]; then
@@ -79,7 +86,7 @@ prompt_end() {
   else
     echo -n "%{%k%}"
   fi
-  echo -n "\n%(?:%{$fg_bold[green]%} %1{󱞩%} :%{$fg_bold[red]%} %1{󱞩%} )%{$reset_color%}%{%f%}"
+  echo -n "\n%(?:%{%F{$MINT_COLOR}%} %1{󱞪%} :%{$fg_bold[red]%} %1{󱞪%} )%{$reset_color%}%{%f%}"
   CURRENT_BG=''
 }
 
@@ -89,7 +96,7 @@ prompt_end() {
 # Context: user@hostname (who am I and where am I)
 prompt_context() {
   if [[ "$USERNAME" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
-    prompt_segment black default "%{$fg_bold[green]%} %{$reset_color%}%(!.%{%F{yellow}%}.)%n@%m"
+    prompt_segment black default "%(!.%{%F{yellow}%}.)%n@%m"
   fi
 }
 
@@ -260,6 +267,7 @@ build_prompt() {
   prompt_status
   prompt_virtualenv
   prompt_aws
+  prompt_mint_logo
   prompt_context
   prompt_dir
   prompt_git
