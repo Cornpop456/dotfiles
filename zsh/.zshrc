@@ -123,3 +123,4 @@ function y() {
 	rm -f -- "$tmp"
 }
 
+source /usr/share/doc/fzf/examples/key-bindings.zsh
