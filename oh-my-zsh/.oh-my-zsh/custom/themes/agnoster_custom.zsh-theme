@@ -33,6 +33,8 @@
 # A few utility functions to make it easy and re-usable to draw segmented prompts
 
 MINT_COLOR=#72b8a5
+ERROR_COLOR=#e8570e
+
 
 CURRENT_BG='NONE'
 
@@ -86,7 +88,7 @@ prompt_end() {
   else
     echo -n "%{%k%}"
   fi
-  echo -n "\n%(?:%{%F{$MINT_COLOR}%} %1{󱞪%} :%{$fg_bold[red]%} %1{󱞪%} )%{$reset_color%}%{%f%}"
+  echo -n "\n%(?:%{%F{$MINT_COLOR}%} %1{󱞪%} :%{%F{$ERROR_COLOR}%} %1{󱞪%} )%{$reset_color%}%{%f%}"
   CURRENT_BG=''#2ab590
 }
 
@@ -241,7 +243,7 @@ prompt_virtualenv() {
 prompt_status() {
   local -a symbols
 
-  [[ $RETVAL -ne 0 ]] && symbols+="%{%F{red}%}✘"
+  [[ $RETVAL -ne 0 ]] && symbols+="%{%F{$ERROR_COLOR}%}✘"
   [[ $UID -eq 0 ]] && symbols+="%{%F{yellow}%}⚡"
   [[ $(jobs -l | wc -l) -gt 0 ]] && symbols+="%{%F{cyan}%}⚙"
 
