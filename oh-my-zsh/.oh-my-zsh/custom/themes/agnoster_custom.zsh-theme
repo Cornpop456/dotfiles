@@ -32,8 +32,8 @@
 ### Segment drawing
 # A few utility functions to make it easy and re-usable to draw segmented prompts
 
-MINT_COLOR=#72b8a5
-ERROR_COLOR=#e8570e
+MINT_COLOR=#37F499
+ERROR_COLOR=#F9515D
 
 
 CURRENT_BG='NONE'
