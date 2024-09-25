@@ -58,6 +58,7 @@ esac
   # escape sequence with a single literal character.
   # Do not change this! Do not make it '\u2b80'; that is the old, wrong code point.
   SEGMENT_SEPARATOR=$'\ue0b0'
+  END_SIGN=$'\ue0b4'
 }
 
 # Begin a segment
@@ -84,7 +85,7 @@ prompt_mint_logo() {
 # End the prompt, closing any open segments
 prompt_end() {
   if [[ -n $CURRENT_BG ]]; then
-    echo -n " %{%k%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR"
+    echo -n " %{%k%F{$CURRENT_BG}%}$END_SIGN"
   else
     echo -n "%{%k%}"
   fi
