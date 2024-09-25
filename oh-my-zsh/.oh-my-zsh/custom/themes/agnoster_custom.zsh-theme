@@ -32,7 +32,7 @@
 ### Segment drawing
 # A few utility functions to make it easy and re-usable to draw segmented prompts
 
-MINT_COLOR=#92ddc8
+MINT_COLOR=#72b8a5
 
 CURRENT_BG='NONE'
 
@@ -87,7 +87,7 @@ prompt_end() {
     echo -n "%{%k%}"
   fi
   echo -n "\n%(?:%{%F{$MINT_COLOR}%} %1{󱞪%} :%{$fg_bold[red]%} %1{󱞪%} )%{$reset_color%}%{%f%}"
-  CURRENT_BG=''
+  CURRENT_BG=''#2ab590
 }
 
 ### Prompt components
