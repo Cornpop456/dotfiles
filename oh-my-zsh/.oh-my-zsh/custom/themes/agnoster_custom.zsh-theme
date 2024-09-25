@@ -32,7 +32,7 @@
 ### Segment drawing
 # A few utility functions to make it easy and re-usable to draw segmented prompts
 
-MINT_COLOR=#3EB489
+MINT_COLOR=#92ddc8
 
 CURRENT_BG='NONE'
 
@@ -76,7 +76,7 @@ prompt_segment() {
 
 # mint logo
 prompt_mint_logo() {
-  prompt_segment black $MINT_COLOR " "
+  prompt_segment black $MINT_COLOR "󰣭 "
 }
 
 # End the prompt, closing any open segments
