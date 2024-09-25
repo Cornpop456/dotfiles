@@ -76,7 +76,7 @@ prompt_segment() {
 
 # mint logo
 prompt_mint_logo() {
-  prompt_segment black $MINT_COLOR "󰣭 "
+  prompt_segment black $MINT_COLOR " "
 }
 
 # End the prompt, closing any open segments
