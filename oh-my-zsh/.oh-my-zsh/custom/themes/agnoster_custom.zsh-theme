@@ -269,7 +269,6 @@ prompt_aws() {
 ## Main prompt
 build_prompt() {
   RETVAL=$?
-  prompt_status
   prompt_virtualenv
   prompt_aws
   prompt_mint_logo
