@@ -85,7 +85,7 @@ prompt_end() {
   else
     echo -n "%{%k%}"
   fi
-  echo -n "\n%(?:%{%F{white}%} %1{󱞪%} :%{%F{red}%} %1{󱞪%} )%{$reset_color%}%{%f%}"
+  echo -n "\n%(?:%{%F{white}%} %1{󱞪%} :%{%F{#b04d4d}%} %1{󱞪%} )%{$reset_color%}%{%f%}"
   CURRENT_BG=''#2ab590
 }
 
@@ -240,7 +240,7 @@ prompt_virtualenv() {
 prompt_status() {
   local -a symbols
 
-  [[ $RETVAL -ne 0 ]] && symbols+="%{%F{$ERROR_COLOR}%}✘"
+  [[ $RETVAL -ne 0 ]] && symbols+="%{%F{#b04d4d}%}✘"
   [[ $UID -eq 0 ]] && symbols+="%{%F{yellow}%}⚡"
   [[ $(jobs -l | wc -l) -gt 0 ]] && symbols+="%{%F{cyan}%}⚙"
 
@@ -263,6 +263,7 @@ prompt_aws() {
 ## Main prompt
 build_prompt() {
   RETVAL=$?
+  prompt_status
   prompt_virtualenv
   prompt_aws
   prompt_mint_logo
