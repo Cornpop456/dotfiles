@@ -113,6 +113,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Отключение заголовка в окне терминала (это делает kittty)
 DISABLE_AUTO_TITLE="true"
 
 #смена директории после выхода из yazi
@@ -125,5 +126,6 @@ function y() {
 	rm -f -- "$tmp"
 }
 
+# биндинги для zfz (прога поиска файлов)
 source /usr/share/doc/fzf/examples/key-bindings.zsh
 source /usr/share/doc/fzf/examples/completion.zsh
