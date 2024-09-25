@@ -32,12 +32,6 @@
 ### Segment drawing
 # A few utility functions to make it easy and re-usable to draw segmented prompts
 
-MINT_COLOR=#37F499
-ERROR_COLOR=#F9515D
-BG_CUSTOM=#3c324f
-
-
-
 CURRENT_BG='NONE'
 
 case ${SOLARIZED_THEME:-dark} in
@@ -81,7 +75,7 @@ prompt_segment() {
 
 # mint logo
 prompt_mint_logo() {
-  prompt_segment $BG_CUSTOM white "󰣭 "
+  prompt_segment black white "󰣭 "
 }
 
 # End the prompt, closing any open segments
@@ -91,7 +85,7 @@ prompt_end() {
   else
     echo -n "%{%k%}"
   fi
-  echo -n "\n%(?:%{%F{white}%} %1{󱞪%} :%{%F{$ERROR_COLOR}%} %1{󱞪%} )%{$reset_color%}%{%f%}"
+  echo -n "\n%(?:%{%F{white}%} %1{󱞪%} :%{%F{red}%} %1{󱞪%} )%{$reset_color%}%{%f%}"
   CURRENT_BG=''#2ab590
 }
 
@@ -101,7 +95,7 @@ prompt_end() {
 # Context: user@hostname (who am I and where am I)
 prompt_context() {
   if [[ "$USERNAME" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
-    prompt_segment $BG_CUSTOM default "%(!.%{%F{yellow}%}.)%n@%m"
+    prompt_segment black default "%(!.%{%F{yellow}%}.)%n@%m"
   fi
 }
 
